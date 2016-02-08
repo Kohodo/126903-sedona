@@ -9,28 +9,15 @@
 </head>
 <body>
   <div class="container">
-    <header class="header-index">
-      <nav class="navigation">
-        <ul>
-          <li>
-            <a href='#'>Информация</a>
-          </li>
-          <li>
-            <a href='#'>Фото и видео</a>
-          </li>
-          <li>
-            <a href="index.html"><img src="img/logo.png" alt="логотип" width="138" height="70"></a>
-          </li>
-          <li>
-            <a href='hotels.html'>Гостиницы</a>
-          </li>
-          <li>
-            <a href='#'>Карта штата</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-
+    <nav class="menu">
+            <a class="menu-active" href="#">Информация</a>
+            <a href="#">Фото и видео</a>
+            <a href="index.html" class="menu-logo">
+                <img src="img/logo.png" alt="">
+            </a>
+            <a href="#">Карта штата</a>
+            <a href="hotels.html">Гостиницы</a>
+        </nav>
     <main>
       <div class="main-poster">
         <img src="img/intro.png" alt="Welcome to the gorgeous Sedona 'Because Grand Canyon Sucks'" width="458" height="352">
@@ -39,64 +26,54 @@
         <h1>Седона &mdash; небольшой городок в Аризоне, заслуживающий большего!</h1>
         <p>Рассмотрим 5 причин, по которым Седона круче, чем гранд каньон!</p>
       </div>
-      <div class="row">
-        <div class="col col1">
-          <div class="advantage-main">
-            <h2 class="advantage-heading">настоящий городок</h2>
-            <p class="advantage-number">&dash;№1&dash;</p>
-            <p class="advantage-text">Седона не аттракцион для туристов, там течет своя жизнь</p>
-          </div>
+      <div class="advantage-main">
+        <h2 class="advantage-heading">настоящий городок</h2>
+        <p class="advantage-number">&dash;№1&dash;</p>
+        <p class="advantage-text">Седона не аттракцион для туристов, там течет своя жизнь</p>
+      </div>
+      <div class="additional-advantages-white">
+        <div class="additional-advantage-house">
+          <h2 class="advantage">жилье</h2>
+          <p class="advantage-text">рекомендуем пожить в настоящем мотеле, все как в кино!</p>
         </div>
-        <div class="additional-advantages-white">
-          <div class="additional-advantage-house">
-            <h2 class="advantage">жилье</h2>
-            <p class="advantage-text">рекомендуем пожить в настоящем мотеле, все как в кино!</p>
-          </div>
-          <div class="additional-advantage-food">
-            <h2 class="advantage">Еда</h2>
-            <p class="advantage-text">Всегда заказывая фирменный бургер, Вы не разочаруетесь!</p>
-          </div>
-          <div class="additional-advantage-souvenir">
-            <h2 class="advantage">Сувениры</h2>
-            <p class="advantage-text">Не только китайского, но и местного производства!</p>
-          </div>
+        <div class="additional-advantage-food">
+          <h2 class="advantage">Еда</h2>
+          <p class="advantage-text">Всегда заказывая фирменный бургер, Вы не разочаруетесь!</p>
         </div>
-        <div class="row">
-          <div class="col col1">
-            <div class="advantage-main">
-              <h2 class="advantage">Там есть мост дьявола</h2>
-              <p class="advantage-number">&dash;№2&dash;</p>
-              <p class="advantage-text">Да, по нему можно пройти! Если конечно вы осмелитесь</p>
-            </div>
-          </div>
+        <div class="additional-advantage-souvenir">
+          <h2 class="advantage">Сувениры</h2>
+          <p class="advantage-text">Не только китайского, но и местного производства!</p>
         </div>
-        <div class="row">
-          <div class="additional-advantages-grey">
-            <div class="additional-advantage">
-              <h2 class="advantage">Небольшая площадь</h2>
-              <p class="advantage-number">&dash;№3&dash;</p>
-              <p class="advantage-text">Все достопремечательности находятся очень близко</p>
-            </div>
-            <div class="additional-advantage">
-              <h2 class="advantage">Красивая дорога</h2>
-              <p class="advantage-number">&dash;№4&dash;</p>
-              <p class="advantage-text">Ехать в Седону из Лас-Вегаса совсем не скучно!</p>
-            </div>
-            <div class="additional-advantage">
-              <h2 class="advantage">Мало туристов</h2>
-              <p class="advantage-number">&dash;№5&dash;</p>
-              <p class="advantage-text">Большинство едет в Гранд Каньон и толпится там</p>
-            </div>
-          </div>
+      </div>
+      <div class="advantage-main">
+        <h2 class="advantage">Там есть мост дьявола</h2>
+        <p class="advantage-number">&dash;№2&dash;</p>
+        <p class="advantage-text">Да, по нему можно пройти! Если конечно вы осмелитесь</p>
+      </div>
+      <div class="additional-advantages-grey">
+        <div class="additional-advantage">
+          <h2 class="advantage">Небольшая площадь</h2>
+          <p class="advantage-number">&dash;№3&dash;</p>
+          <p class="advantage-text">Все достопремечательности находятся очень близко</p>
         </div>
-        <div class="marketing">
-          <h2 class="marketing">заинтересовались?</h2>
-          <p class="call-to-action">укажите предполагаемые даты поездки и мы покажем вам лучшие предложения гостиниц в седоне</p>
+        <div class="additional-advantage">
+          <h2 class="advantage">Красивая дорога</h2>
+          <p class="advantage-number">&dash;№4&dash;</p>
+          <p class="advantage-text">Ехать в Седону из Лас-Вегаса совсем не скучно!</p>
         </div>
-        <div class="booking-form-container">
-          <div class="booking-form-wrapper">
-            <a href="#" class="booking-form-open">поиск гостиницы в седоне</a>
-          </div>
+        <div class="additional-advantage">
+          <h2 class="advantage">Мало туристов</h2>
+          <p class="advantage-number">&dash;№5&dash;</p>
+          <p class="advantage-text">Большинство едет в Гранд Каньон и толпится там</p>
+        </div>
+      </div>
+      <div class="marketing">
+        <h2 class="marketing">заинтересовались?</h2>
+        <p class="call-to-action">укажите предполагаемые даты поездки и мы покажем вам лучшие предложения гостиниц в седоне</p>
+      </div>
+      <div class="booking-form-container">
+        <div class="booking-form-wrapper">
+          <a href="#" class="booking-form-open">поиск гостиницы в седоне</a>
           <div class="modal-content">
             <form class="booking-form" action="#" method="post">
               <div class="booking-form-dates">
@@ -110,9 +87,9 @@
               <div class="booking-form-counters guests">
                 <div class="booking-form-counters adults">
                   <label for="number-adult">взрослые:</label>
-                  <button type="button"class="booking-form-minus minus-adult"><i class="icon-minus"></i></button>
-                  <input type="number" class="booking-form-counter-input number-adult" name="number-adult" id="number-adult" value="2" min="1" max="9">
-                  <button type="button"class="booking-form-plus plus-adult"><i class="icon-plus"></i></button>
+                  <button type="button" class="booking-form-minus minus-adult"><i class="icon-minus"></i></button>
+                  <input type="number"  class="booking-form-counter-input number-adult" name="number-adult" id="number-adult" value="2" min="1" max="9">
+                  <button type="button" class="booking-form-plus plus-adult"><i class="icon-plus"></i></button>
                 </div>
                 <div class="booking-form-counters child">
                   <label for="number-child">взрослые:</label>
@@ -126,26 +103,25 @@
               </div>
             </form>
           </div>
-          <div class="map">
-            <iframe>
-            </iframe>
-          </div>
-        </main>
-        <footer>
-          <div class="footer-hashtag">
-            <a href="#" class="hashtag" target="blank">#Visitsedona</a>
-          </div>
-          <div class="footer-social">
-            <a href="#" class="social-icon tw" target="_blank">Twitter</a>
-            <a href="#" class="social-icon fb" target="_blank">Facebook</a>
-            <a href="#" class="social-icon youtube" target="_blank">Youtube</a>
-          </div>
-          <div class="footer-copyright">
-            <p class="copyright">Website by<a href="http://htmlacademy.ru/"><img src="img/logo-html.png" width="113" height="39" alt="HTML academy"></a></p>
-          </div>
-        </footer>
-
+        </div>
       </div>
-      <script src="js/main.js"></script>
-    </body>
-    </html>
+        <div class="map">
+        </div>
+      </main>
+      <footer>
+        <div class="footer-hashtag">
+          <a href="#" class="hashtag" target="blank">#Visitsedona</a>
+        </div>
+        <div class="footer-social">
+          <a href="#" class="social-icon tw" target="_blank">Twitter</a>
+          <a href="#" class="social-icon fb" target="_blank">Facebook</a>
+          <a href="#" class="social-icon youtube" target="_blank">Youtube</a>
+        </div>
+        <div class="footer-copyright">
+          <p class="copyright">Website by<a href="http://htmlacademy.ru/"><img src="img/logo-html.png" width="113" height="39" alt="HTML academy"></a></p>
+        </div>
+      </footer>
+    </div>
+    <script src="js/main.js"></script>
+  </body>
+  </html>

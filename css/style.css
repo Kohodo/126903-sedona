@@ -37,3 +37,72 @@ body {
   background-color: white;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, .15);
 }
+li {
+  list-style-type: none;
+}
+
+.menu {
+    min-height: 56px;
+
+    font-size: 0;
+}
+
+.menu a {
+    display: inline-block;
+
+    width: 20%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    text-align: center;
+    vertical-align: top;
+}
+
+.menu .menu-logo {
+    position: relative;
+    z-index: 50;
+
+    height: 56px;
+    padding: 0;
+}
+.menu a {
+    text-decoration: none;
+    text-transform: uppercase;
+
+    color: #000000;
+
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 26px;
+}
+
+.menu a:hover {
+    color: #81b3d2;
+}
+
+.menu a:active {
+    color: #b2b2b2;
+    color: rgba(0, 0, 0, .3);
+}
+
+.menu .menu-active {
+    color: #766357;
+}
+
+.menu .menu-active:hover {
+    color: #604e43;
+}
+
+.menu .menu-active:active {
+    color: #d6d0cc;
+    color: rgba(118, 99, 87, .3);
+}
+
+/*END NAVIGATION*/
+.hotels-filters {
+  background-image: url('../img/blur.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #493e35;
+  width: 100%;
+}
