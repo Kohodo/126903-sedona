@@ -1,0 +1,1351 @@
+/* самое первое - у тебя в файлы как бы подключен normalize.css, но самого этого файла в
+папке css нет, поэтому сброс стандартных стилей не работает.
+
+я ниже об этом буду писать, но на всякий случай: заголовкам и параграфам нужно
+обнулять стандартные маргины и добавлять нужные вручную; */
+
+body {
+  /* body нужно обнулить margin, иначе у тебя появляются полоски сверху и снизу, которых нет в макете */
+  font-family: 'PT Sans', Arial, sans-serif;
+  font-size: 14px;
+  line-height: 21px;
+  color: #333333;
+  text-transform: uppercase;
+  background-color: #dfdfdf;
+  /* фоновый цвет у боди другой, #f2f2f2*/
+}
+/* клеарфикс лучше делать так:
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+} */
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* соблюдай единообразие в оформлении кода, например одна пустая строка между блоками. у тебя то одна, то две, то ни одной */
+
+
+.main-poster {
+  background-image: url('../img/main-poster.jpg');
+  background-size: cover;
+  background-color: #493e35;
+  /* фоновый цвет у этого блока должен явно быть другой, все-таки на картинке преобладает голубой цвет, а не коричневый*/
+  height: 510px;
+  width: 100%;
+  text-align: center;
+  padding-top: 74px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.main-poster::after {
+  content: '';
+  width: 100%;
+  height: 60px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-image: url('../img/shape.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.container {
+  min-width: 768px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: white;
+  /* сейчас получается, что тень у тебя висит на каждом блоке с классом container, а это три отдельных блока - в шапке,
+  в подвале и основной контент страницы. из-за этого, обрати внимание, у тебя в меню в шапке есть эта горизонтальная тень,
+  а ее быть не должно. по макету тень есть у всего контентного блока. то есть нужно свойство box-shadow убрать
+  с селектора container и задать внешнюю обертку всему контенту (шапка + main + подвал), и именно на нее повесить тень */
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, .15);
+}
+
+li {
+  /* сейчас ты убрал маркеры у всех списков во всем проекте, у тех что есть и у тех, которые могут появиться.
+   по нашему макету это не ошибка, потому что там нигде нет стандартных списков. но в принципе так делать не очень хорошо,
+    а в данном конкретном случае не очень понятно, зачем */
+  list-style-type: none;
+}
+
+.menu {
+  min-height: 56px;
+  font-size: 0;
+}
+
+.menu a {
+  display: inline-block;
+  width: 20%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: center;
+  vertical-align: top;
+}
+
+.menu .menu-logo {
+  position: relative;
+  z-index: 50;
+  height: 56px;
+  padding: 0;
+}
+.menu a {
+  /* у тебя выше по коду уже есть селектор .menu a, буквально одним блоком выше. перенеси свойства отсюда туда,
+   иначе, если что-то надо было менять или искать ошибку, а у тебя по коду будут разбросаны хаотично правила для одного
+   и того же элемента, ты запутаешься и не факт, что все найдешь. ну и так сразу будут видны все стили, которые применены к элементу*/
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000000;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 26px;
+}
+
+.menu a:hover {
+  color: #81b3d1;
+}
+
+.menu a:active {
+  color: #b2b2b2;
+  color: rgba(0, 0, 0, .3);
+}
+
+.menu .menu-active {
+  color: #756357;
+}
+
+.menu .menu-active:hover {
+  color: #604e43;
+  /* по макету там немного другой цвет, #5f4d43 */
+}
+
+.menu .menu-active:active {
+  color: #d6d0cc;
+  color: rgba(118, 99, 87, .3);
+  /* в данном случае у тебя работает свойство color, которое ниже по коду, значит первое писать не надо. */
+}
+
+/*END NAVIGATION*/
+/*INTRO*/
+
+.intro {
+  /* вообще это довольно странно - отбивать дочерние блоки от обертки маргинами. маргины нужны, чтобы отбивать
+   соседние блоки друг от друга. верхний и нижний отступ у intro лучше паддингами сделать. и
+   соответственно оставить margin: 0 auto; и max-width */
+  margin: 60px auto 50px;
+  max-width: 500px;
+  text-align: center;
+}
+
+.intro h1 {
+  /* заголовкам всегда лучше обнулять маргины и задавать нужные вручную, потому что предустановленные
+  стили могут отличаться в разных браузерах */
+  text-decoration: none;
+  /* свойство text-decoration для тега h1 лишнее, это же не ссылка, у него нет никаких подчеркиваний */
+  color: #000000;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 26px;
+}
+.intro p {
+  /* с параграфами то же самое, что с заголовками - нужно обнулять стандартные маргины */
+  color: #000000;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 26px;
+}
+
+/* немного отличаются у тебя в итоге вертикальные размеры intro от макетных.
+по вертикали лучше разбить все так: https://www.dropbox.com/s/z459werm9a2ty2x/%D0%A1%D0%BA%D1%80%D0%B8%D0%BD%D1%88%D0%BE%D1%82%202016-02-18%2019.56.05.png?dl=0 сорри за мэдскиллз ) */
+
+/*END INTRO*/
+.advantage-main {
+  height: 256px;
+  /* не нужно вообще почти никогда жестко указывать высоту блоков. высота блоков должна формироваться за счет контента и отступов.
+  задавать фиксированную высоту нужно в нескольких случаях - когда блок декоративный и его высота критична для
+   дизайна и когда точно известно, что количество контента в нем не изменится. а здесь чисто теоретически вполне
+   может поменяться описание, и если текста будет больше, чем сейчас, он может просто вывалиться за пределы контейнера.
+   поэтому тут вообще можно без указания высоты обойтись, просто фону добавить подходящее свойство background-size,
+   чтобы он точно тянулся на всю высоту и ширину.
+  высота блока с текстом, если что, складывается из высоты строки line-height элементов и из отступов, вот и все. так и надо считать */
+  font-size: 0;
+  /* обнулять размер шрифта здесь не нужно, вроде бы у нас тут нет нескольких инлайн-блоков внутри */
+  background-image: url('../img/advantage-img-1.jpg');
+  background-position: 100% 0%;
+  background-color: #81b3d2;
+}
+.advantage-text-wrapper {
+  display: inline-block;
+  width: 33.3333333%;
+  /* это не ошибка, но для процентного выражения ширины 6 знаков после запятой достаточно :) */
+  padding: 50px;
+  box-sizing: border-box;
+  text-align: center;
+  vertical-align: top;
+  background-color: #81b3d2;
+  color: white;
+  /* #fff; опять же требование единообразного оформления - указывай все цвета в одном формате. в шестнадцатеричном для непрозрачных
+  цветов и в rgba для полупрозрачных. либо тогда уж все надо писать ключевыми словами, но это, конечно, бред */
+  height: 100%;
+  font-size: 14px;
+  /* у тебя font-size: 14px; задан для body, так что здесь его писать нет смысла, тем более для обертки текста,
+  ведь заголовку ты размер шрифта все равно переопределишь */
+}
+
+.advantage-main2 {
+  height: 256px;
+  /* то же самое с фикс.высотой, что и выше, она не нужна. как и font-size:0; */
+  font-size: 0;
+  background-image: url('../img/advantage-img-2.jpg');
+  background-position: 0% 100%;
+  background-color: #81b3d2;
+}
+.advantage-text-wrapper2 {
+  display: inline-block;
+  /* зачем здесь display: inline-block;? ты дальше задаешь этому элементу свойство float,
+  и он автоматически становится display:block; ну и если здесь float, то родительскому
+  блоку нужно добавить класс clearfix, иначе как только ты уберешь у него фиксированную высоту,
+  он схлопнется и фона не будет. либо можно было оставить display: inline-block и задать
+   родительскому элементу text-align: right, тогда текстовый блок прижался бы к правому краю */
+  width: 33.3333333%;
+  padding: 50px;
+  float:right;
+  box-sizing: border-box;
+  text-align: center;
+  vertical-align: top;
+  background-color: #81b3d2;
+  color: white;
+  /* формат цвета */
+  height: 100%;
+  font-size: 14px;
+}
+.advantage-heading {
+  /* нужно обнулить маргины у заголовка и добавить их вручную */
+  font-weight: bold;
+  /* font-weight у тебя то bold, то 700. мелочь, но пиши лучше одинаково, тем более что для этого шрифта bold и есть 700 */
+  font-size: 21px;
+  line-height: 26px;
+  max-width: 151px;
+  margin: 0 auto 20px;
+}
+.advantage-main-text {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  margin: 0 auto 20px;
+}
+.advantage-main-text2 {
+  padding: 0px 11%;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  margin: 0 auto 20px;
+}
+
+.advantage-number {
+  margin-bottom: 20px;
+}
+
+.advantage-number::after {
+  content: ' —';
+}
+
+.advantage-number::before {
+  content: '— ';
+}
+.additional-advantage {
+  display: inline-block;
+  width: 33%;
+  vertical-align: top;
+  padding: 50px 30px 80px 30px;
+  box-sizing: border-box;
+  text-align: center;
+  /* родителю этих блоков нужно обнулить размер шрифта, поскольку тут у нас выстраиваемые в
+  ряд инлайн-блоки. иначе смотри как все выглядит на минимальной для макета ширине
+  https://www.dropbox.com/s/e04ybsz7bvjzuvd/%D0%A1%D0%BA%D1%80%D0%B8%D0%BD%D1%88%D0%BE%D1%82%202016-02-18%2020.51.14.png?dl=0 */
+}
+.additional-advantage-icon {
+  /* это не очень правильно, иконки тут нужно делать не так. у тебя сейчас в разметке есть пустые теги для этих иконок.
+  собственно для того изображения и делятся на контентные и декоративные, чтобы последние можно было
+  НЕ добавлять в разметку и НЕ замусоривать ее. поэтому удали из разметки теги div.additional-advantage-icon,
+  а иконки добавь псевдоэлементами например к additional-advantage. и их точно так же можно было добавить
+  в спрайт как и остальные мелкие картинки */
+  height: 80px;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-bottom: 30px;
+}
+
+.additional-advantage-icon.house {
+  background-image: url('../img/house.png');
+}
+
+.additional-advantage-icon.food {
+  background-image: url('../img/food.png');
+}
+
+.additional-advantage-icon.souvenir {
+  background-image: url('../img/souvenir.png');
+}
+
+.additional-advantages-grey {
+  /* тут нужно обнулить размер шрифта, посколько потомки там инлайн-блоки */
+  background-color: #eeeeee;
+  margin-bottom: 60px;
+  /* по логике этот маргин - верхний паддинг нижележащего блока. представь что заказчик предлагает поменять блоки местами,
+   и нижний блок у тебя внезапно оказывается "без головы", а у этого появляется белая полоса внизу */
+}
+
+.additional-advantage-grey {
+  display: inline-block;
+  width: 33%;
+  text-align: center;
+  padding: 50px;
+  box-sizing: border-box;
+  vertical-align: top;
+}
+.advantages-text{
+  padding: 0px 5%;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  margin: 0 auto 20px;
+
+}
+
+.booking-title {
+  text-align: center;
+  color: #000000;
+  margin-bottom: 30px;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 26px;
+  /* не бывает line-height меньше, чем font-size. в макете может быть так, но в верстке нет.
+   и здесь макет вполне позволяет увеличить выосту строки за счет отступов. рассчитывай их исходя из того,
+   что высота строки равна 34px. ну и стандартные отступы надо обнулить, да*/
+}
+
+.booking-info {
+  text-align: center;
+  width: 500px;
+  /* лучше max-width указывать */
+  margin-right: auto;
+  margin-bottom: 45px;
+  margin-left: auto;
+  color: #000000;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+}
+.booking-block {
+  position: relative;
+  width: 570px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.booking-btn {
+  display: block;
+  width: 100%;
+  padding-top: 32px;
+  padding-bottom: 31px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #766357;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 26px;
+}
+.booking-btn:active {
+  color: #9f928a;
+  color: rgba(255, 255, 255, .3);
+}
+
+.booking-form {
+  position: absolute;
+  z-index: 100;
+  top: 89px;
+  /* top:100%; здесь спасет от случая, когда высота кнопки меняется. можно и так как у тебя, но так лучше */
+  left: 0;
+  display: block;
+  width: 460px;
+  padding: 55px;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 38px 95px -21px rgba(0, 0, 0, .75);
+  -moz-box-shadow: 0 38px 95px -21px rgba(0, 0, 0, .75);
+  box-shadow: 0 38px 95px -21px rgba(0, 0, 0, .75);
+  font-size: 0;
+  /* если здесь обнуляется шрифт и внутри идут инлайн-блоки, тогда у оберток элементов удали классы clearfix */
+}
+.booking-form-row {
+  margin-bottom: 27px;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* это не работает, в стандарт вроде так и не включили. ну и в любом случае такие вещи пишут к самим элементам, а не к оберткам */
+
+  font-size: 0;
+
+  -webkit-touch-callout: none;
+  -khtml-user-select: none;
+}
+
+.booking-form-row label {
+  display: inline-block;
+
+  width: 110px;
+  /* не надо эти пустые строки делать между свойствами, визуально все разбито на куски и не читается */
+
+  text-align: left;
+  vertical-align: middle;
+}
+
+.booking-form-row input {
+  position: relative;
+
+  display: inline-block;
+
+  width: 301px;
+  padding: 5px 30px 5px 15px;
+
+  vertical-align: middle;
+
+  border-style: none;
+  background-color: #f2f2f2;
+}
+
+.booking-form input:hover {
+  background-color: #ebebeb;
+}
+
+.booking-form input:focus {
+  outline: none;
+  background-color: #ffffff;
+  -webkit-box-shadow: inset 0 0 0 2px rgba(229, 229, 229, 1);
+  -moz-box-shadow: inset 0 0 0 2px rgba(229, 229, 229, 1);
+  box-shadow: inset 0 0 0 2px rgba(229, 229, 229, 1);
+  /* можно и так, но на самом деле это делается рамками, рамки поддерживаются лучше чем
+  box-shadow. для нашего тз (ie10+) это пофиг, но вообще рамки тенями делать немного экзотично */
+}
+
+.booking-form-col {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 50%;
+  vertical-align: top;
+  font-size: 0;
+}
+
+.booking-form-col label {
+  text-align: center;
+}
+
+.booking-form-col:first-child label {
+  text-align: left;
+}
+.booking-form-label,
+.booking-form-label + input {
+  text-decoration: none;
+  /* ну это вроде лишнее, никакого стандартного подчеркивания у этих элементов нет */
+  text-transform: uppercase;
+  color: #000000;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 26px;
+}
+.booking-form-dates {
+  margin-bottom: 32px;
+}
+
+.booking-form-dates input:after {
+  position: absolute;
+  width: 21px;
+  height: 23px;
+  content: "";
+  background: -92px -10px no-repeat url(../img/sprites.png);
+  /* псевдоэлементы к input видны в лучшем случае в хроме. в большинстве других браузеров они не отображаются.
+  поэтому никогда не нужно вешать псевдоэлементы на поля или теги не содержащие контент,
+  такие как img, только на обертки. и здесь тоже. переделай. ну и чуть пониже нужно опустить иконку,
+  вертикально она не по центру. и value полям пропиши как в макете, потому что не во всех браузерах они
+   будут отображаться как input[type="date"] со стандартным плейсхолдером, в некоторых как обысное текстовое поле.
+  вот в фаерфоксе например
+  https://www.dropbox.com/s/jsokjohrsm0e27f/%D0%A1%D0%BA%D1%80%D0%B8%D0%BD%D1%88%D0%BE%D1%82%202016-02-18%2021.13.39.png?dl=0 */
+}
+
+.booking-form-dates input:hover:after {
+  background: -10px -10px no-repeat url(../img/sprites.png);
+}
+
+.booking-form-dates input:focus:after {
+  background: -51px -10px no-repeat url(../img/sprites.png);
+}
+
+.booking-form-dates + .booking-form-row {
+  margin-bottom: 55px;
+}
+
+.booking-form-col input {
+  width: 32px;
+  padding-right: 41px;
+  padding-left: 41px;
+
+  text-align: center;
+}
+
+.booking-controls-plus,
+.booking-controls-minus {
+  position: relative;
+
+  cursor: pointer;
+
+  /* очень странно у тебя сделаны эти кнопки. во-первых, не нужно их делать ссылками,
+  лучше button type="button", потому что никуда они не ссылаются и никуда не отправляют. это просто кнопки.
+   ну и надежнее внутри поля позиционировать сами кнопки, чем псевдоэлементы с фоном к ним. сейчас у тебя кнопки
+   имеют высоту 0 и ширину 0 и болтаются в неопределенном месте, а псевдоэлементы позиционируются со странными цифрами типа
+    .booking-controls-minus:before {left: -100px;}  */
+}
+
+.booking-controls-minus:before {
+  position: absolute;
+  top: -1.5px;
+  left: -100px;
+
+  width: 11px;
+  height: 0;
+  height: 11px;
+  /* это чо хоть такое-то, height: 0; и height: 11px;? последнего явно достаточно */
+
+  content: "";
+
+  background: -284px -69px no-repeat url(../img/sprites.png);
+}
+
+.booking-controls-minus:hover:before,
+input:hover ~ .booking-controls-subtract:before {
+  background: -252px -69px no-repeat url(../img/sprites.png);
+}
+
+.booking-controls-minus:active:before,
+input:focus ~ .booking-controls-minus:before {
+  background: -189px -69px no-repeat url(../img/sprites.png);
+}
+
+.booking-controls-plus:after {
+  position: absolute;
+  top: -5px;
+  right: 10px;
+
+  width: 11px;
+  height: 0;
+  height: 11px;
+  /* то же, что выше, одного раза указать высоту хватит */
+
+  content: "";
+
+  background: -189px -100px no-repeat url(../img/sprites.png);
+}
+
+.booking-controls-plus:hover:after,
+input:hover ~ .booking-controls-plus:after {
+  background: -316px -69px no-repeat url(../img/sprites.png);
+}
+
+
+.booking-controls-plus:active:after,
+input:focus ~ .booking-controls-plus:after {
+  background: -347px -69px no-repeat url(../img/sprites.png);
+}
+
+.booking-form-btn {
+  /* почему-то стандартный курсор у кнопки, добавь cursor: pointer*/
+  width: 100%;
+  padding-top: 15px;
+  padding-bottom: 18px;
+  border: none;
+  background-color: #81b3d2;
+  /* объедини этот блок с нижним, зачем два раза писать один и тот же селектор */
+}
+.booking-form-btn{
+  text-transform: uppercase;
+  color: #ffffff;
+  font-size: 21px;
+  font-weight: 700;
+  /* отсутствие точки с запятой после значения свойства - ошибка. */
+  line-height: 26px
+}
+
+.booking-form-btn:focus {
+  outline: none;
+}
+
+.booking-form-btn:hover {
+  background-color: #669ec0;
+}
+
+.booking-form-btn:active {
+  background-color: #5496bd;
+}
+
+.map {
+  position: relative;
+
+  overflow: hidden;
+
+  height: 473px;
+}
+
+/*START FILTER*/
+
+.filter {
+  padding-top: 29px;
+  background: #647e94 no-repeat url('../img/blur.jpg');
+  background-size: 100% auto;
+}
+
+.filter-housing,
+.filter-infrastructure {
+  float: left;
+  box-sizing: border-box;
+  width: 256px;
+  padding-left: 6%;
+}
+
+.filter-price {
+  float: right;
+  box-sizing: border-box;
+  width: 33%;
+  padding-right: 7%;
+  text-align: center;
+}
+
+.filter-housing input,
+.filter-infrastructure input {
+  display: none;
+  /* когда прячешь чекбоксы и радиокнопки, лучше указывать, что именно ты прячешь. input[type="checkbox"] */
+}
+
+.filter-housing-title,
+.filter-infrastructure-title {
+  /* заголовкам надо стандартные маргины обнулить. из-за них у тебя этот блок выше, чем в макете */
+  margin-bottom: 24px;
+}
+
+.filter-variant {
+  position: relative;
+  display: block;
+  margin-bottom: 27px;
+  margin-left: 40px;
+  /*когда мы отбиваемся не от соседнего элемента, а от родительского контейнера,
+   в большинстве случаев лучше паддинг использовать. т.е. тут лучше padding-left: 40px; */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -khtml-user-select: none;
+  /* user-select: none; здесь не нужен абсолютно точно, ад и вообще он особо не нужен */
+}
+
+input + .filter-variant:before {
+  position: absolute;
+  top: 0;
+  left: -40px;
+  width: 22px;
+  height: 22px;
+  content: "";
+  background: -179px -10px no-repeat url(../img/sprites.png);
+}
+
+input:checked + .filter-variant:before {
+  position: absolute;
+  top: 0;
+  left: -40px;
+  width: 26px;
+  height: 22px;
+  background: -179px -10px no-repeat url(../img/sprites.png);
+}
+
+input + .filter-variant:hover:before {
+  background: -179px -10px no-repeat url(../img/sprites.png);
+}
+
+input:checked + .filter-variant:hover:before {
+  background: -133px -10px no-repeat url(../img/sprites.png);
+}
+
+input:disabled + .filter-variant:before {
+  background: -10px -52px no-repeat url(../img/sprites.png);
+}
+
+input:checked:disabled + .filter-variant:before {
+  background: -52px -52px no-repeat url(../img/sprites.png);
+}
+
+input:checked + .filter-variant:before {
+  background: -133px -10px no-repeat url(../img/sprites.png);
+}
+
+/* нужно прописать состояние для disabled чекбокса, как в стайлгайде в макете */
+
+.filter-price-title {
+  margin-bottom: 9px;
+  text-align: left;
+}
+
+.filter-price-boundaries {
+  margin-bottom: 11px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+
+  font-size: 0;
+}
+
+.filter-price-boundaries input {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 50%;
+  text-align: center;
+  vertical-align: top;
+  border: none;
+  background-color: transparent;
+  /* не заметила в задании по разметке - у этих элементов цифры надо сделать через value, а "от" и "до" - лейблами,
+   иначе мы их можем стереть из инпута, а это как-то не очень правильно */
+}
+
+.filter-price-boundaries input:nth-child(2n+1) {
+  border-right: 2px solid #ffffff;
+}
+
+.filter-price-boundaries input:focus {
+  outline: none;
+}
+
+.filter-price-scale {
+  position: relative;
+  min-height: 20px;
+  margin-bottom: 25px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -khtml-user-select: none;
+  /* user-select не нужен */
+}
+
+.filter-price-scale:before {
+  position: absolute;
+  top: 9px;
+  right: 10%;
+  left: 0;
+  height: 2px;
+  content: "";
+  background-color: rgba(255, 255, 255, .3);
+  /* лучше эти элементы - прогресс-бар и его уровень - включить в разметку, потому что с псевдоэлементами не получится
+   работать с джаваскриптом. то есть полоски надо делать не .filter-price-scale:before и .filter-price-scale:after, а
+    включить в разметку внутри .filter-price-scale два абсолютно позиционированных спана типа span class="progress-bar"
+    для полоски целиком и span class="progress" для заполненной полоски. идеально вообще сделать .filter-price-scale
+    этой серой полосой, для высоты задать ей паддинги верхний и нижний. и тогда добавить в разметку всего один абсолютно
+    позиционированный спан - для собственно заполненной полоски уже */
+}
+
+.filter-price-scale:after {
+  position: absolute;
+  top: 9px;
+  right: 15%;
+  left: 0;
+  height: 2px;
+  content: "";
+  background-color: #ffffff;
+}
+
+.filter-scale-toggle {
+  position: absolute;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: #ffffff;
+}
+
+.filter-scale-toggle:before {
+  position: absolute;
+  z-index: 10;
+  top: 8px;
+  left: 8px;
+  width: 4px;
+  height: 4px;
+  content: "";
+  border-radius: 50%;
+  background-color: #ababab;
+}
+
+.filter-scale-toggle:hover:before {
+  background-color: #1c4f80;
+}
+
+.filter-min-toggle {
+  left: 0;
+}
+
+.filter-max-toggle {
+  right: 15%;
+}
+
+.filter-btn {
+  width: 136px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  border: 2px solid #ffffff;
+  border-radius: 3px;
+  background-color: transparent;
+  /* cursor: pointer; надо добавить */
+}
+
+.filter-btn:hover {
+  color: #ffffff;
+  border-color: #ffffff;
+  background-color: #ffffff;
+  text-transform: uppercase;
+  color: #000000;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px
+}
+.filter-btn:focus {
+  outline: none;
+}
+.filter-price-title,
+.filter-housing-title,
+.filter-infrastructure-title {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 21px;
+}
+
+.filter-btn,
+.filter-variant,
+.filter-price-controll,
+.filter-price-boundaries input {
+  text-transform: uppercase;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+/*END FITLERS*/
+/*START OPTIONS*/
+.options {
+  /* высота всего этого блока по макету 86px. line-height текста внутри - 26. значит верхний и нижний паддинги одинаковые */
+  padding-top: 29px;
+  padding-bottom: 30px;
+  border: 1px solid #e5e5e5;
+}
+
+.options-left-column {
+  float: left;
+  box-sizing: border-box;
+  width: 625px;
+  padding-left: 6%;
+  font-size: 0;
+}
+
+.options-left-column a,
+.options-left-column span {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.options-about,
+.options-left-column a {
+  padding-top: 6px;
+}
+
+.options-found {
+  margin-right: 49px;
+}
+
+.options-about {
+  margin-right: 40px;
+}
+.options-found{
+  text-decoration: none;
+  color: #000000;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 26px;
+}
+.options span,
+.options-variant {
+  text-decoration: none;
+  color: #000000;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.options .options-found {
+  text-decoration: none;
+  color: #000000;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 26px;
+  /* зачем ты это здесь повторяешь, если выше по коду у тебя есть аж два блока с селектором .options-found и
+  частично теми же свойствами. нужно их все объединить и оставить только нужные свойства  */
+}
+
+.options-variant {
+  color: rgba(0, 0, 0, .3);
+  border-bottom: 1px dotted #81b3d2;
+}
+
+.options-active {
+  color: #81b3d2;
+  border-bottom-color: transparent;
+}
+
+.options-variant:hover {
+  color: #81b3d2;
+}
+
+.options-variant:active {
+  color: #000000;
+  border-bottom-color: transparent;
+}
+
+.options-left-column a {
+  margin-right: 33px;
+}
+
+.options-right-column {
+  float: right;
+  width: 70px;
+  margin-right: 7%;
+  padding-top: 12px;
+  text-align: right;
+  font-size: 0;
+  /* надо изменить отступы в этом блоке, чтобы он был не выше 26px (сейчас 33), иначе он растягивает
+  родительский блок, у которого верхний и нижний паддинг равны 30, а общая высота должна быть 86 */
+}
+
+.options-right-column a {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  vertical-align: top;
+}
+
+.options-down-arrow {
+  position: relative;
+  margin-left: 12px;
+}
+
+.options-up-arrow:before,
+.options-down-arrow:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  content: "";
+  border-width: 10px 5px 0;
+  border-style: solid;
+  border-color: #e5e5e5 transparent transparent;
+}
+
+.options-up-arrow {
+  position: relative;
+}
+
+.options-up-arrow:before {
+  border-width: 0 5px 10px;
+  border-color: transparent transparent #e5e5e5;
+}
+
+.options-up-arrow:hover:before {
+  border-color: transparent transparent #000000;
+}
+
+.options-down-arrow:hover:before {
+  border-color: #000000 transparent transparent;
+}
+
+.options-up-arrow:active:before {
+  border-color: transparent transparent #81b3d2;
+}
+
+.options-down-arrow:active:before {
+  border-color: #81b3d2 transparent transparent;
+}
+
+.options-up-arrow.options-active:before {
+  border-color: transparent transparent #81b3d2;
+}
+
+.options-down-arrow.options-active:before {
+  border-color: #81b3d2 transparent transparent;
+}
+/*END OPTIONS*/
+
+/*START RESULT*/
+
+.result-infoblock-title {
+  text-decoration: none;
+  color: #000000;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 15px;
+}
+
+.result-infoblock-title:hover {
+  color: #81b3d2;
+}
+
+.result-infoblock-title:active {
+  color: rgba(0, 0, 0, .3);
+}
+
+.result-about-price,
+.result-housing-type{
+  color: #000000;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+.result-booking-btn,
+.result-housing-more {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 21px;
+}
+
+.result-booking-btn:active,
+.result-housing-more:active {
+  color: rgba(255, 255, 255, .3);
+}
+
+.result-mark-info {
+  color: #666666;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+}
+.result-housing {
+  padding-top: 27px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.result-housing-left {
+  float: left;
+  width: 500px;
+  padding-left: 6%;
+  font-size: 0;
+}
+
+.result-housing-img,
+.result-housing-infoblock {
+  display: inline-block;
+  vertical-align: top;
+  padding-top: 3px;
+}
+
+.result-housing-img {
+  width: 135px;
+  min-height: 90px;
+  margin-right: 31px;
+
+}
+
+.result-housing-infoblock {
+  width: 258px;
+  /* здесь не нужно указывать фиксированную ширину, например, название отеля может быть длинным и тогда
+  оно не должно переноситься на вторую строку. то есть ширина блока должна быть больше, а уже внутренние блоки
+  с кнопками можно ограничить */
+}
+
+.result-infoblock-title {
+  display: block;
+  max-width: 258px;
+/* выше по коду уже есть .result-infoblock-title, добавь свойства отсюда туда. и никто не сказал,
+кстати, что заголовок не может быть шире 258px. очень даже может и должен, если текст длинный.
+а так он у тебя перенесется на следующую строку. то есть ограничение по ширине нужно сделать больше
+ (и соответственно то же верно для родительского блока) */
+}
+
+.result-about-housing {
+  float: left;
+  width: 110px;
+  /* ты пользуешься тут флоатами, значит в разметке родительскому блоку надо добавить класс clearfix, его там нет */
+}
+
+.result-about-price,
+.result-housing-type {
+  margin-bottom: 11px;
+}
+
+.result-about-booking {
+  float: right;
+
+  width: 142px;
+}
+
+.result-housing-ratings {
+  float: right;
+
+  box-sizing: border-box;
+  width: 190px;
+  padding-right: 5%;
+}
+
+.result-housing-more {
+  display: block;
+  width: 100%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  text-align: center;
+  background-color: #81b3d2;
+}
+
+.result-housing-more:hover {
+  background-color: #669ec0;
+}
+
+.result-housing-more:active {
+  background-color: #5496bd;
+}
+
+.result-booking-btn {
+  display: block;
+  width: 100%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  text-align: center;
+  background-color: #766357;
+}
+
+.result-booking-btn:hover {
+  background-color: #604e43;
+}
+
+.result-booking-btn:active {
+  background-color: #503e33;
+}
+.result-ratings-stars {
+  width: 114px;
+  min-height: 17px;
+  margin-bottom: 49px;
+}
+
+.result-ratings-good {
+  background: -94px -143px no-repeat url(../img/sprites.png);
+  /* я ругалась на классы bad/good и продолжаю ругаться. сделай для количества звезд. отели не
+  становятся плохими оттого, что у них рейтинг две звезды, а хорошими оттого, что 4. это просто класс отеля */
+}
+
+.result-ratings-bad {
+  background: -70px -143px no-repeat url(../img/sprites.png);
+}
+
+.result-ratings-4star {
+  background: -119px -143px no-repeat url(../img/sprites.png);
+}
+.result-mark-info {
+  /* нужно выровнять этот блок иначе, чтобы правый край надписи был на уровне правого края
+  последней взездочки. сейчас звездочки вылезают
+  https://www.dropbox.com/s/b77cj53qgm77i1s/%D0%A1%D0%BA%D1%80%D0%B8%D0%BD%D1%88%D0%BE%D1%82%202016-02-18%2022.18.41.png?dl=0 */
+  width: 110px;
+  padding-top: 3px;
+  padding-bottom: 4px;
+
+  text-align: center;
+
+  background-color: #f2f2f2;
+}
+/*END RESULT*/
+
+
+
+
+/*FOOTER*/
+footer {
+  font-size: 0;
+}
+.social-icon {
+  position: relative;
+
+  display: inline-block;
+
+  width: 46px;
+  height: 48px;
+  margin-right: 5px;
+
+  vertical-align: top;
+
+  background-color: #81b3d2;
+}
+
+.social-icon:hover {
+  position: relative;
+
+  background-color: #669ec0;
+}
+
+.social-icon:active {
+  position: relative;
+
+  background-color: #5496bd;
+}
+
+.social-icon:before {
+  position: absolute;
+
+  width: 22px;
+  height: 20px;
+
+  content: "";
+}
+.footer-social,
+.footer-hashtag,
+.footer-copyright {
+  display: inline-block;
+
+  box-sizing: border-box;
+  width: 33.33%;
+  min-height: 90px;
+
+  text-align: center;
+  vertical-align: top;
+}
+
+.footer-hashtag {
+  padding-top: 50px;
+  padding-bottom:45px;
+}
+.footer-hashtag a{
+  text-decoration: none;
+  color: #000000;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 26px;
+}
+
+.footer-social {
+  padding-top: 36px;
+
+  font-size: 0;
+}
+.social-icon {
+  position: relative;
+
+  display: inline-block;
+
+  width: 46px;
+  height: 48px;
+  margin-right: 5px;
+
+  vertical-align: top;
+
+  background-color: #81b3d2;
+}
+
+.social-icon:hover {
+  position: relative;
+
+  background-color: #669ec0;
+}
+
+.social-icon:active {
+  position: relative;
+
+  background-color: #5496bd;
+}
+
+.social-icon:before {
+  position: absolute;
+  width: 22px;
+  height: 20px;
+  content: "";
+}
+.tw:before {
+  top: 16px;
+  left: 15px;
+
+  background: -300px -100px no-repeat url(../img/sprites.png);
+}
+
+.tw:active:before {
+  background: -337px -100px no-repeat url(../img/sprites.png);
+}
+
+.fb:before {
+  top: 15px;
+  left: 17px;
+
+  background: -129px -70px no-repeat url(../img/sprites.png);
+}
+
+.fb:active:before {
+  background: -159px -70px no-repeat url(../img/sprites.png);
+}
+
+.youtube:before {
+  top: 17px;
+  left: 12px;
+
+  background: -252px -165px no-repeat url(../img/sprites.png);
+}
+
+.youtube:active:before {
+  background: -292px -165px no-repeat url(../img/sprites.png);
+}
+
+.footer-copyright {
+  padding-top: 41px;
+  font-size: 0;
+}
+.footer-copyright a,
+.footer-copyright span {
+  display: inline-block;
+  vertical-align: middle;
+}
+.copyright-intro {
+  color: #000000;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 26px;
+}
+.copyright-htmlacademy {
+  width: 113px;
+  height: 39px;
+  margin-left: 5px;
+
+  background: -10px -109px no-repeat url(../img/sprites.png);
+}
+
+.copyright-htmlacademy:hover {
+  background: -10px -168px no-repeat url(../img/sprites.png);
+}
+
+.copyright-htmlacademy:active {
+  background: -252px -10px no-repeat url(../img/sprites.png);
+}
+/*END FOOTER*/

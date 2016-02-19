@@ -8,8 +8,8 @@
   <link href="css/normalize.css" rel="stylesheet">
 </head>
 <body>
-
-    <header class="container">
+  <div class="container">
+    <header>
       <nav class="menu">
         <a class="menu-active" href="#">Информация</a>
         <a href="#">Фото и видео</a>
@@ -20,7 +20,7 @@
         <a href="hotels.html">Гостиницы</a>
       </nav>
     </header>
-    <main class="container">
+    <main>
       <div class="main-poster">
         <img src="img/intro.png" alt="Welcome to the gorgeous Sedona 'Because Grand Canyon Sucks'" width="458" height="352">
       </div>
@@ -35,24 +35,21 @@
           <p class="advantage-main-text">Седона — не аттракцион для туристов, там течет своя жизнь</p>
         </div>
       </div>
-      <div class="additional-advantages">
+      <div class="additional-advantages clearfix">
         <div class="additional-advantage">
-          <div class="additional-advantage-icon house"></div>
-          <div class="advantage-heading">жилье</div>
-          <p>рекомендуем пожить в настоящем мотеле, все как в кино!</p>
+          <div class="advantage-heading">Жилье</div>
+          <p>Рекомендуем пожить в настоящем мотеле, все как в кино!</p>
         </div>
         <div class="additional-advantage">
-          <div class="additional-advantage-icon food"></div>
-          <div class="advantage-heading">еда</div>
-          <p>всегда заказывай фирменный бургер, вы не разочаруетесь!</p>
+          <div class="advantage-heading">Еда</div>
+          <p>Всегда заказывайте фирменный бургер, <br> вы не разочаруетесь!</p>
         </div>
         <div class="additional-advantage">
-          <div class="additional-advantage-icon souvenir"></div>
-          <div class="advantage-heading">сувениры</div>
-          <p>не только китайского, но и местного производства!</p>
+          <div class="advantage-heading">Сувениры</div>
+          <p>Не только китайского,<br> но и местного производства!</p>
         </div>
       </div>
-      <div class="advantage-main2">
+      <div class="advantage-main2 clearfix">
         <div class="advantage-text-wrapper2">
           <h2 class="advantage-heading">Там есть мост дьявола</h2>
           <p class="advantage-number">№2</p>
@@ -84,23 +81,23 @@
         <div class="booking-form">
           <form method="post" action="/search">
             <div class="booking-form-dates">
-              <div class="booking-form-row clearfix">
+              <div class="booking-form-row">
                 <label class="booking-form-label" for="booking-arrive-date">Дата заезда:</label>
                 <input type="date" id="booking-arrive-date" required>
               </div>
-              <div class="booking-form-row clearfix">
+              <div class="booking-form-row ">
                 <label class="booking-form-label" for="booking-departure-date">Дата выезда:</label>
                 <input type="date" id="booking-departure-date" required>
               </div>
             </div>
-            <div class="booking-form-row clearfix">
-              <div class="booking-form-col booking-col-adult clearfix">
+            <div class="booking-form-row">
+              <div class="booking-form-col booking-col-adult">
                 <label class="booking-form-label" for="booking-audit-adult">Взрослых:</label>
                 <input type="text" id="booking-audit-adult" value="2" required>
                 <a class="booking-controls-minus" href="#"></a>
                 <a class="booking-controls-plus" href="#"></a>
               </div>
-              <div class="booking-form-col booking-col-junior clearfix">
+              <div class="booking-form-col booking-col-junior ">
                 <label class="booking-form-label" for="booking-audit-junior">Детей:</label>
                 <input type="text" id="booking-audit-junior" value="1" required>
                 <a class="booking-controls-minus" href="#"></a>
@@ -117,7 +114,7 @@
 
       </div>
     </main>
-    <footer class="container">
+    <footer>
       <div class="footer-hashtag">
         <a href="#" target="blank">#Visitsedona</a>
       </div>
@@ -131,7 +128,7 @@
         <a class="copyright-htmlacademy" href="http://htmlacademy.ru/"></a>
       </p>
     </footer>
-
+  </div>
   <script src="js/main.js"></script>
 </body>
 </html>
