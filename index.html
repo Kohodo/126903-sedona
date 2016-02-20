@@ -83,25 +83,28 @@
             <div class="booking-form-dates">
               <div class="booking-form-row">
                 <label class="booking-form-label" for="booking-arrive-date">Дата заезда:</label>
-                <input type="date" id="booking-arrive-date" required>
+                <input id="booking-arrive-date" type="text" name="booking-arrive-date" placeholder="24 апреля 2016">
+                <i class="icon-calendar date-in"></i>
               </div>
-              <div class="booking-form-row ">
-                <label class="booking-form-label" for="booking-departure-date">Дата выезда:</label>
-                <input type="date" id="booking-departure-date" required>
+              <div class="booking-form-row">
+                <label class="booking-form-label" for="booking-departure-date">Дата заезда:</label>
+                <input id="booking-arrive-date" type="text" name="booking-departure-date" placeholder="4 июля 2016">
+                <i class="icon-calendar date-out"></i>
               </div>
             </div>
+
             <div class="booking-form-row">
               <div class="booking-form-col booking-col-adult">
-                <label class="booking-form-label" for="booking-audit-adult">Взрослых:</label>
+                <label class="booking-form-label" for="booking-audit-adult">Взрослые:</label>
+                <button class="icon-minus" type="button"></button>
                 <input type="text" id="booking-audit-adult" value="2" required>
-                <a class="booking-controls-minus" href="#"></a>
-                <a class="booking-controls-plus" href="#"></a>
+                <button class="icon-plus" type="button"></button>
               </div>
-              <div class="booking-form-col booking-col-junior ">
-                <label class="booking-form-label" for="booking-audit-junior">Детей:</label>
+              <div class="booking-form-col booking-col-junior">
+                <label class="booking-form-label" for="booking-audit-junior">Дети:</label>
+                <button class="icon-minus" type="button"></button>
                 <input type="text" id="booking-audit-junior" value="1" required>
-                <a class="booking-controls-minus" href="#"></a>
-                <a class="booking-controls-plus" href="#"></a>
+                <button class="icon-plus" type="button"></button>
               </div>
             </div>
             <button class="booking-form-btn" type="submit">Найти</button>
@@ -111,7 +114,6 @@
 
       <div class="map">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52385.17731020665!2d-111.79513845000001!3d34.854378399999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x872da132f942b00d%3A0x5548c523fa6c8efd!2z0KHQtdC00L7QvdCwLCDQkNGA0LjQt9C-0L3QsCwg0KHQqNCQ!5e0!3m2!1sru!2s!4v1442949098654" width="100%" height="480" frameborder="0" style="border:0" allowfullscreen></iframe>
-
       </div>
     </main>
     <footer>

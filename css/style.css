@@ -8,6 +8,46 @@ body {
   margin: 0;
 
 }
+@font-face {
+  font-weight: normal;
+  font-style: normal;
+
+  font-family: "symbols-sedona";
+  src: url("../fonts/symbols-sedona.woff") format("woff"),
+       url("../fonts/symbols-sedona.woff2") format("woff2");
+}
+
+[class^="icon-"]::before,
+[class*=" icon-"]::before {
+  display: inline-block;
+  width: 1em;
+  margin-right: 0.2em;
+  margin-left: 0.2em;
+
+  font-weight: normal;
+  line-height: 1em;
+  font-family: "symbols-sedona";
+  text-align: center;
+  text-transform: none;
+  text-decoration: inherit;
+  font-style: normal;
+  font-variant: normal;
+
+  speak: none;
+}
+
+.icon-facebook::before { content: "\66"; } /* "f" */
+.icon-twitter::before { content: "\74"; } /* "t" */
+.icon-up-dir::before { content: "\25b2"; } /* "▲" */
+.icon-down-dir::before { content: "\25bc"; } /* "▼" */
+.icon-star::before { content: "\2605"; } /* "★" */
+.icon-check-off::before { content: "\2610"; } /* "☐" */
+.icon-check-on::before { content: "\2611"; } /* "☑" */
+.icon-calendar::before { content: "\e800"; } /* "" */
+.icon-plus::before { content: "\e801"; } /* "" */
+.icon-minus::before { content: "\e802"; } /* "" */
+.icon-youtube::before { content: "\f39e"; } /* "" */
+
 .clearfix:before,
 .clearfix:after {
  content: "";
@@ -297,6 +337,7 @@ body {
   margin-left: auto;
 }
 
+
 .booking-btn {
   display: block;
   width: 100%;
@@ -330,6 +371,7 @@ body {
   box-shadow: 0 38px 95px -21px rgba(0, 0, 0, .75);
   font-size: 0;
 }
+
 
 .booking-form-row {
   margin-bottom: 27px;
@@ -389,83 +431,79 @@ body {
   line-height: 26px;
 }
 
-.booking-form-dates {
-  margin-bottom: 32px;
-}
+.booking-form-col input {
+  text-transform: uppercase;
+  width: 32px;
+    color: #000000;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 26px;
+    vertical-align: top;
+    text-align: center;
+    border-style: none;
+    background-color: #f2f2f2;
 
-.booking-form-dates input:after {
+}
+.icon-calendar {
   position: absolute;
   width: 21px;
-  height: 23px;
-  content: "";
-  background: -92px -10px no-repeat url(../img/sprites.png);
+  height: 22px;
+  font-size: 21px;
+  color: #c2c2c2;
+  font-style: normal;
 }
 
-.booking-form-dates input:hover:after {
-  background: -10px -10px no-repeat url(../img/sprites.png);
+.date-in {
+  top: 63px;
+  right: 70px;
 }
 
-.booking-form-dates input:focus:after {
-  background: -51px -10px no-repeat url(../img/sprites.png);
+.date-out {
+  top: 127px;
+  right: 69px;
 }
 
-.booking-form-dates + .booking-form-row {
-  margin-bottom: 55px;
+.icon-calendar:hover,
+.icon-minus:hover,
+.icon-plus:hover {
+  color: #000000;
 }
 
-.booking-form-col input {
+.icon-calendar:active,
+.icon-minus:active,
+.icon-plus:active {
+  color: #81b3d2;
+}
+.icon-minus,
+.icon-plus {
   width: 32px;
-  padding-right: 41px;
-  padding-left: 41px;
+  padding: 5px 30px 5px 15px;
   text-align: center;
+  border: 0;
+  outline: 0;
+  background-color: #f2f2f2;
+}
+.icon-plus,
+.icon-minus {
+  font-size: 14px;
+  color: #a9a9a9;
+  line-height: 26px;
+}
+.booking-col-adult .icon-minus {
+
+}
+.booking-col-junior .icon-minus {
+
+}
+.booking-col-junior{
+
 }
 
-.booking-controls-plus,
-.booking-controls-minus {
+.icon-minus,
+.icon-plus {
   position: relative;
   cursor: pointer;
 }
-
-.booking-controls-minus:before {
-  position: absolute;
-  top: -1.5px;
-  left: -100px;
-  width: 11px;
-  height: 11px;
-  content: "";
-  background: -284px -69px no-repeat url(../img/sprites.png);
-}
-
-.booking-controls-minus:hover:before,
-input:hover ~ .booking-controls-subtract:before {
-  background: -252px -69px no-repeat url(../img/sprites.png);
-}
-
-.booking-controls-minus:active:before,
-input:focus ~ .booking-controls-minus:before {
-  background: -189px -69px no-repeat url(../img/sprites.png);
-}
-
-.booking-controls-plus:after {
-  position: absolute;
-  top: -5px;
-  right: 10px;
-  width: 11px;
-  height: 11px;
-  content: "";
-  background: -189px -100px no-repeat url(../img/sprites.png);
-}
-
-.booking-controls-plus:hover:after,
-input:hover ~ .booking-controls-plus:after {
-  background: -316px -69px no-repeat url(../img/sprites.png);
-}
-
-.booking-controls-plus:active:after,
-input:focus ~ .booking-controls-plus:after {
-  background: -347px -69px no-repeat url(../img/sprites.png);
-}
-
 .booking-form-btn {
   width: 100%;
   padding-top: 15px;
