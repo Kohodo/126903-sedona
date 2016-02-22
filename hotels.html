@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <title>Седона</title>
   <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700&amp;subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
-  <link href="css/style.css" rel="stylesheet">
   <link href="css/normalize.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
   <div class="container">
@@ -26,7 +26,7 @@
         <form method="post" action="/filter">
           <div class="filter-infrastructure">
             <h3 class="filter-infrastructure-title">Инфраструктура:</h3>
-            <input type="checkbox" id="filter-pool" disabled>
+            <input type="checkbox" id="filter-pool">
             <label class="filter-variant" for="filter-pool">Бассейн</label>
             <input type="checkbox" id="filter-parking">
             <label class="filter-variant" for="filter-parking">Парковка</label>
@@ -39,7 +39,7 @@
             <label class="filter-variant" for="filter-hotel">Гостиница</label>
             <input type="checkbox" id="filter-motel" checked>
             <label class="filter-variant" for="filter-motel">Мотель</label>
-            <input type="checkbox" id="filter-apartment" checked disabled>
+            <input type="checkbox" id="filter-apartment" checked>
             <label class="filter-variant" for="filter-apartment">Апартаменты</label>
           </div>
 
@@ -47,8 +47,10 @@
             <h3 class="filter-price-title">Стоимость в сутки (Р):</h3>
             <div class="filter-price-controll">
               <div class="filter-price-boundaries">
-              <label class="price-min">от <input name="price-min" type="text" value="0"></label>
-              <label class="price-max">до <input name="price-max" type="text" value="3000"></label>
+              <label class="price-min"  for="price-min">от </label>
+              <input name="price-min" id="price-min" type="text" value="0">
+              <label class="price-max">до </label>
+                <input name="price-max" id="price-max"type="text" value="3000">
               </div>
               <div class="filter-price-scale">
               <div class="scale">
