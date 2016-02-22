@@ -1,5 +1,5 @@
 body {
-  font-family: 'PT Sans', Arial, sans-serif;
+  font-family: "PT Sans", Arial, sans-serif;
   font-size: 14px;
   line-height: 21px;
   color: #333333;
@@ -20,19 +20,13 @@ body {
 [class^="icon-"]::before,
 [class*=" icon-"]::before {
   display: inline-block;
-  width: 1em;
-  margin-right: 0.2em;
-  margin-left: 0.2em;
-
   font-weight: normal;
-  line-height: 1em;
   font-family: "symbols-sedona";
   text-align: center;
   text-transform: none;
   text-decoration: inherit;
   font-style: normal;
   font-variant: normal;
-
   speak: none;
 }
 
@@ -59,7 +53,7 @@ body {
 }
 
 .main-poster {
-  background-image: url('../img/main-poster.jpg');
+  background-image: url("../img/main-poster.jpg");
   background-size: cover;
   background-color: #81b3d1;
   height: 510px;
@@ -77,7 +71,7 @@ body {
   position: absolute;
   bottom: 0;
   left: 0;
-  background-image: url('../img/shape.png');
+  background-image: url("../img/shape.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
@@ -166,7 +160,7 @@ body {
 /*END INTRO*/
 .advantage-main {
   background-size: contain;
-  background-image: url('../img/advantage-img-1.jpg');
+  background-image: url("../img/advantage-img-1.jpg");
   background-position: 100% 0%;
   background-color: #81b3d2;
 }
@@ -184,7 +178,7 @@ body {
 
 .advantage-main-2 {
   background-size: contain;
-  background-image: url('../img/advantage-img-2.jpg');
+  background-image: url("../img/advantage-img-2.jpg");
   background-position: 0% 100%;
   background-color: #81b3d2;
 }
@@ -337,7 +331,6 @@ body {
   margin-left: auto;
 }
 
-
 .booking-btn {
   display: block;
   width: 100%;
@@ -352,6 +345,7 @@ body {
   font-weight: 700;
   line-height: 26px;
 }
+
 .booking-btn:active {
   color: #9f928a;
   color: rgba(255, 255, 255, .3);
@@ -371,7 +365,6 @@ body {
   box-shadow: 0 38px 95px -21px rgba(0, 0, 0, .75);
   font-size: 0;
 }
-
 
 .booking-form-row {
   margin-bottom: 27px;
@@ -423,6 +416,7 @@ body {
 .booking-form-col:first-child label {
   text-align: left;
 }
+
 .booking-form-label,
 .booking-form-label + input {
   text-transform: uppercase;
@@ -443,7 +437,6 @@ body {
     text-align: center;
     border-style: none;
     background-color: #f2f2f2;
-
 }
 .icon-calendar {
   position: absolute;
@@ -454,11 +447,11 @@ body {
   font-style: normal;
 }
 
-.date-in, .date-out {
+.date-in,
+.date-out {
   margin-left: -30px;
   margin-top: 6px
 }
-
 
 .icon-calendar:hover,
 .icon-minus:hover,
@@ -470,6 +463,33 @@ body {
 .icon-minus:active,
 .icon-plus:active {
   color: #81b3d2;
+
+}
+
+.icon-plus:before,
+.icon-minus:before {
+  font-size: 14px
+}
+
+.icon-minus,
+.icon-plus {
+  width: 38px;
+  text-align: center;
+  border: 0;
+  outline: 0;
+  background-color: #f2f2f2;
+  color: #a9a9a9;
+  position: absolute;
+  top:0;
+  cursor: pointer;
+  margin-top: 6%;
+}
+.icon-minus {
+  left: 0;
+}
+
+.icon-plus {
+  right: 0;
 }
 
 .booking-input-wrapper {
@@ -485,26 +505,8 @@ body {
   width: 100%;
   padding-left: 38px;
   padding-right: 38px;
-}
-.icon-minus,
-.icon-plus {
-  width: 38px;
-  text-align: center;
-  border: 0;
-  outline: 0;
-  background-color: #f2f2f2;
-  color: #a9a9a9;
-  line-height: 26px;
-  position: absolute;
-  top:0;
-  cursor: pointer;
-}
-.icon-minus {
-  left: 0;
-}
-
-.icon-plus {
-  right: 0;
+  background: #F2F2F2;
+  border:none;
 }
 
 .booking-form-btn {
@@ -544,7 +546,7 @@ body {
 
 .filter {
   padding-top: 29px;
-  background: #647e94 no-repeat url('../img/blur.jpg');
+  background: #647e94 no-repeat url("../img/blur.jpg");
   background-size: 100% auto;
 }
 
@@ -589,7 +591,7 @@ input + .filter-variant:before {
   width: 22px;
   height: 22px;
   content: "";
-  background: -179px -10px no-repeat url(../img/sprites.png);
+  background: -179px -10px no-repeat url("../img/sprites.png");
 }
 
 input:checked + .filter-variant:before {
@@ -598,27 +600,27 @@ input:checked + .filter-variant:before {
   left: -40px;
   width: 26px;
   height: 22px;
-  background: -179px -10px no-repeat url(../img/sprites.png);
+  background: -179px -10px no-repeat url("../img/sprites.png");
 }
 
 input + .filter-variant:hover:before {
-  background: -179px -10px no-repeat url(../img/sprites.png);
+  background: -179px -10px no-repeat url("../img/sprites.png");
 }
 
 input:checked + .filter-variant:hover:before {
-  background: -133px -10px no-repeat url(../img/sprites.png);
+  background: -133px -10px no-repeat url("../img/sprites.png");
 }
 
 input:disabled + .filter-variant:before {
-  background: -10px -52px no-repeat url(../img/sprites.png);
+  background: -10px -52px no-repeat url("../img/sprites.png");
 }
 
 input:checked:disabled + .filter-variant:before {
-  background: -52px -52px no-repeat url(../img/sprites.png);
+  background: -52px -52px no-repeat url("../img/sprites.png");
 }
 
 input:checked + .filter-variant:before {
-  background: -133px -10px no-repeat url(../img/sprites.png);
+  background: -133px -10px no-repeat url("../img/sprites.png");
 }
 
 .filter-price-title {
@@ -1025,15 +1027,15 @@ input:checked + .filter-variant:before {
 }
 
 .result-ratings-3star {
-  background: -94px -143px no-repeat url(../img/sprites.png);
+  background: -94px -143px no-repeat url("../img/sprites.png");
 }
 
 .result-ratings-2star {
-  background: -70px -143px no-repeat url(../img/sprites.png);
+  background: -70px -143px no-repeat url("../img/sprites.png");
 }
 
 .result-ratings-4star {
-  background: -119px -143px no-repeat url(../img/sprites.png);
+  background: -119px -143px no-repeat url("../img/sprites.png");
 }
 .result-mark-info {
   width: 110px;
@@ -1132,31 +1134,31 @@ footer {
 .tw:before {
   top: 16px;
   left: 15px;
-  background: -300px -100px no-repeat url(../img/sprites.png);
+  background: -300px -100px no-repeat url("../img/sprites.png");
 }
 
 .tw:active:before {
-  background: -337px -100px no-repeat url(../img/sprites.png);
+  background: -337px -100px no-repeat url("../img/sprites.png");
 }
 
 .fb:before {
   top: 15px;
   left: 17px;
-  background: -129px -70px no-repeat url(../img/sprites.png);
+  background: -129px -70px no-repeat url("../img/sprites.png");
 }
 
 .fb:active:before {
-  background: -159px -70px no-repeat url(../img/sprites.png);
+  background: -159px -70px no-repeat url("../img/sprites.png");
 }
 
 .youtube:before {
   top: 17px;
   left: 12px;
-  background: -252px -165px no-repeat url(../img/sprites.png);
+  background: -252px -165px no-repeat url("../img/sprites.png");
 }
 
 .youtube:active:before {
-  background: -292px -165px no-repeat url(../img/sprites.png);
+  background: -292px -165px no-repeat url("../img/sprites.png");
 }
 
 .footer-copyright {
@@ -1178,14 +1180,14 @@ footer {
   width: 113px;
   height: 39px;
   margin-left: 5px;
-  background: -10px -109px no-repeat url(../img/sprites.png);
+  background: -10px -109px no-repeat url("../img/sprites.png");
 }
 
 .copyright-htmlacademy:hover {
-  background: -10px -168px no-repeat url(../img/sprites.png);
+  background: -10px -168px no-repeat url("../img/sprites.png");
 }
 
 .copyright-htmlacademy:active {
-  background: -252px -10px no-repeat url(../img/sprites.png);
+  background: -252px -10px no-repeat url("../img/sprites.png");
 }
 /*END FOOTER*/
