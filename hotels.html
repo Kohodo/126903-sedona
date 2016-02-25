@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Седона</title>
-  <link href="http://fonts.googleapis.com/css?family=PT+Sans:400,700&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=PT+Sans:400,700&amp;subset=latin,cyrillic" rel="stylesheet" type="text/css">
   <link href="css/normalize.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
 </head>
@@ -14,10 +14,10 @@
         <a href="#">Информация</a>
         <a href="#">Фото и видео</a>
         <a href="index.html" class="menu-logo">
-          <img src="img/logo.png" alt="">
+          <img src="img/logo.png" width="138px" height="70px" alt="City of Sedona">
         </a>
         <a href="#">Карта штата</a>
-        <a class="menu-active" href="#">Гостиницы</a>
+        <a class="menu-active" href="hotels.html">Гостиницы</a>
       </nav>
     </header>
     <main>
@@ -26,8 +26,8 @@
         <form method="post" action="/filter">
           <div class="filter-infrastructure">
             <h3 class="filter-infrastructure-title">Инфраструктура:</h3>
-            <input type="checkbox" id="filter-pool">
-            <label class="filter-variant" for="filter-pool">Бассейн</label>
+            <input type="checkbox" id="filter-pool"checked>
+            <label class="filter-variant" for="filter-pool" >Бассейн</label>
             <input type="checkbox" id="filter-parking">
             <label class="filter-variant" for="filter-parking">Парковка</label>
             <input type="checkbox" id="filter-wifi">
@@ -47,17 +47,24 @@
             <h3 class="filter-price-title">Стоимость в сутки (Р):</h3>
             <div class="filter-price-controll">
               <div class="filter-price-boundaries">
-              <label class="price-min"  for="price-min">от </label>
-              <input name="price-min" id="price-min" type="text" value="0">
-              <label class="price-max">до </label>
-                <input name="price-max" id="price-max" type="text" value="3000">
+                <label class="price-min"  for="price-min">
+                  от
+                </label>
+                <input name="price-min" id="price-min" type="text" value="ОТ 0">
+                <label class="price-max" for="price-max">
+                  до
+                </label>
+                <input name="price-max" id="price-max" type="text" value="ДО 3000">
               </div>
               <div class="filter-price-scale">
-              <div class="scale">
-              <div class="bar"></div>
-              </div>
-              <div class="toggle min-toggle"></div>
-              <div class="toggle max-toggle"></div>
+                <div class="scale">
+                  <div class="bar">
+                  </div>
+                </div>
+                <div class="toggle min-toggle">
+                </div>
+                <div class="toggle max-toggle">
+                </div>
               </div>
             </div>
             <button class="filter-btn" type="submit">Показать</button>
@@ -73,14 +80,14 @@
           <a href="#" class="options-variant options-functions">По рейтингу</a>
         </div>
         <div class="options-right-column">
-          <a class="options-up-arrow options-active" href="#"></a>
-          <a class="options-down-arrow" href="#"></a>
+          <a class="options-up-arrow" href="#"></a>
+          <a class="options-down-arrow options-active" href="#"></a>
         </div>
       </div>
       <div class="result">
         <div class="result-housing clearfix">
           <div class="result-housing-left">
-            <img class="result-housing-img" src="img/amara.jpg" alt="Amara resort & spa">
+            <img class="result-housing-img" src="img/amara.jpg" width="135px" height="90px" alt="Amara resort & spa">
 
             <div class="result-housing-infoblock">
               <a class="result-infoblock-title" href="#">Amara resort & spa</a>
@@ -103,7 +110,7 @@
         </div>
         <div class="result-housing clearfix">
           <div class="result-housing-left">
-            <img  class="result-housing-img" src="img/desert.jpg" alt="Desert quail inn">
+            <img  class="result-housing-img" src="img/desert.jpg" width="135px" height="90px" alt="Desert quail inn">
             <div class="result-housing-infoblock">
               <a class="result-infoblock-title" href="#">Desert quail inn</a>
               <div class="result-about clearfix">
@@ -125,7 +132,7 @@
         </div>
         <div class="result-housing clearfix">
           <div class="result-housing-left">
-            <img class="result-housing-img" src="img/poco.jpg" alt="Villas at poco diablo">
+            <img class="result-housing-img" src="img/poco.jpg" width="135px" height="90px" alt="Villas at poco diablo">
             <div class="result-housing-infoblock">
               <a class="result-infoblock-title" href="#">Villas at poco diablo</a>
               <div class="result-about">
@@ -161,8 +168,6 @@
         <a class="copyright-htmlacademy" href="http://htmlacademy.ru/"></a>
       </p>
     </footer>
-
   </div>
-  <script src="js/main.js"></script>
 </body>
 </html>
